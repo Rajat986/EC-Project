@@ -1,7 +1,7 @@
 #include <LedControl.h>
 
-int DIN = 13;
-int CS =  12;
+int DIN = 12;
+int CS =  10;
 int CLK = 11;
 
 
@@ -43,3 +43,11 @@ void printByte(byte character [])
     lc.setRow(0,i,character[i]);
   }
 }
+
+/*
+IC Max 7219 : 1) Vcc = 5V
+              2) GND = Gnd(Below 5V)
+              3) DIN = 12
+              4) CS = 10
+              5) CLK = 11
+*/
