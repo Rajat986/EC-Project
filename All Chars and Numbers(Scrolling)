@@ -97,21 +97,21 @@ PROGMEM const unsigned char CH[] = {
   3, 8, B01000001, B00110110, B00001000, B00000000, B00000000, // }
   4, 8, B00001000, B00000100, B00001000, B00000100, B00000000, // ~
 };
-int DIN = 12;   // DIN pin of MAX7219 module
-int CLK =11 ;   // CLK pin of MAX7219 module
-int CS = 10;    // CS pin of MAX7219 module
+int DIN = 12;   
+int CLK =11 ; 
+int CS = 10;   
 int maxInUse = 2;
 MaxMatrix m(DIN, CS, CLK, maxInUse);
 byte buffer[10];
 char text[]= "EC Project By Rajat Sharma "; // Scrolling text
 void setup() {
-  m.init(); // module initialize
-  m.setIntensity(15); // dot matix intensity 0-15
+  m.init(); 
+  m.setIntensity(15); 
 }
 void loop() {
-  printStringWithShift(text, 100); // (text, scrolling speed)
+  printStringWithShift(text, 100); 
 }
-// Display=the extracted characters with scrolling
+
 void printCharWithShift(char c, int shift_speed) {
   if (c < 32) return;
   c -= 32;
@@ -124,10 +124,17 @@ void printCharWithShift(char c, int shift_speed) {
     m.shiftLeft(false, false);
   }
 }
-// Extract the characters from the text string
 void printStringWithShift(char* s, int shift_speed) {
   while (*s != 0) {
     printCharWithShift(*s, shift_speed);
     s++;
   }
 }
+
+/*
+IC Max 7219 : 1) Vcc = 5V
+              2) GND = Gnd(Below 5V)
+              3) DIN = 12
+              4) CS = 10
+              5) CLK = 11
+*/
