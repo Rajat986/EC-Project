@@ -58,7 +58,18 @@ void loop()
 
        else if(data=='r')
        lc.clearDisplay(0);
-    }
-
-    
+    }   
 }
+
+
+
+/*
+8x8 LED Matrix: 1) Vcc = 5V
+                2) GND = Gnd(Below 5V)
+                3) DIN(DATA IN) = 12
+                4) CS (cascading) = 10
+                5) CLK(clock) = 11
+Bluetooth Module: 1) Vcc(+5V) = 3.3V
+                  2) GND = Gnd(Above Vin)
+                  3) Tx = Rx(Pin 0)
+*/
